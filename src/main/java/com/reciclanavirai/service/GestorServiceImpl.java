@@ -55,7 +55,7 @@ public class GestorServiceImpl implements GestorService {
 	public GestorDTO autenticar(String email, String senha) {
 		Optional<Gestor> gestor = repository.findByEmail(email);
 		if (!gestor.isPresent()) {
-			throw new ErroAutenticacao("O email so usuário não foi localizado.");
+			throw new ErroAutenticacao("O email do usuário não foi localizado.");
 		}
 		if(!gestor.get().getSenha().equals(senha)) {
 			throw new ErroAutenticacao("A senha está incorreta.");
